@@ -22,7 +22,7 @@ extern "C" {	//加上extern "C"后，会指示编译器这部分代码按C语言
 /*
  * Name of the directory in $PGDATA
  */
-#define LSM_FDW_NAME        "lsm"	//定义fdw的名称为lsm
+#define LSM_FDW_NAME        "pg_rocksdb_fdw"	//定义fdw的名称为lsm
 
 extern int  LsmQueueSize;
 extern bool LsmSync;

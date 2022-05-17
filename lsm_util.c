@@ -611,7 +611,7 @@ _PG_init(void)
 	BackgroundWorker worker;
 
 	if (!process_shared_preload_libraries_in_progress)
-		elog(ERROR, "LSM: this extension should be loaded via shared_preload_libraries");
+		elog(ERROR, "pg_rocksdb: this extension should be loaded via shared_preload_libraries");
 
 	DefineCustomIntVariable("lsm.queue_size",
 							"Size of LSM queue",
@@ -652,10 +652,10 @@ _PG_init(void)
 	MemSet(&worker, 0, sizeof(BackgroundWorker));
 	worker.bgw_flags = BGWORKER_SHMEM_ACCESS;
 	worker.bgw_start_time = BgWorkerStart_ConsistentState;
-	strcpy(worker.bgw_library_name, "lsm");
-	strcpy(worker.bgw_function_name, "LsmWorkerMain");
-	strcpy(worker.bgw_name, "LSM worker");
-	strcpy(worker.bgw_type, "LSM worker");
+	strcpy(worker.bgw_library_name, "pg_rocksdb");
+	strcpy(worker.bgw_function_name, "pg_rocksdbWorkerMain");
+	strcpy(worker.bgw_name, "pg_rocksdb worker");
+	strcpy(worker.bgw_type, "pg_rocksdb worker");
 
 	RegisterBackgroundWorker(&worker);
 

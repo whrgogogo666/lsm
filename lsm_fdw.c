@@ -32,7 +32,7 @@
 PG_MODULE_MAGIC;
 #endif
 
-PG_FUNCTION_INFO_V1(lsm_fdw_handler);
+PG_FUNCTION_INFO_V1(pg_rocksdb_fdw_handler);
 
 
 /*
@@ -1032,7 +1032,7 @@ AnalyzeForeignTable(Relation relation,
 
 // 文档：https://www.postgresql.org/docs/9.6/fdwhandler.html
 // 这是整个fdw程序的入口
-Datum lsm_fdw_handler(PG_FUNCTION_ARGS)
+Datum pg_rocksdb_fdw_handler(PG_FUNCTION_ARGS)
 {
     //FDW 处理函数返回一个 palloc 的FdwRoutine结构，其中包含指向下面描述的回调函数的指针。
     //FdwRoutine结构类型在src/include/foreign/fdwapi.h中声明
